@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Forecast</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+        h2 {
+            color: #2980b9;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background-color: #2980b9;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #e0e0e0;
+        }
+        p {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.8em;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sales Forecast</h1>
+    <h2>Actual vs Predicted Sales</h2>
+    <table>
+        <tr>
+            <th>Month</th>
+            <th>Actual Sales</th>
+            <th>Predicted Sales</th>
+        </tr>
+        {% for i in range(12) %}
+        <tr>
+            <td>{{ i + 1 }}</td>
+            <td>{{ actual_sales[i] }}</td>
+            <td>{{ predicted_sales[i] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Metrics</h2>
+    <p>Mean Squared Error (MSE): {{ mse }}</p>
+    <p>Mean Absolute Error (MAE): {{ mae }}</p>
+    <p>R-squared (R2): {{ r2 }}</p>
+
+    <footer>
+        <p>&copy; 2024 Sales Forecasting</p>
+    </footer>
+</body>
+</html>
